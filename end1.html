@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>end1</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        
+    </style>
+    <script>
+        var i=parseInt(12);
+        var knock;
+        var scream;
+        function start()
+        {
+            scream=document.getElementById("scream");
+            knock=document.getElementById("knock");
+            interval = window.setInterval( "show()", 2000 );
+        }
+        function show(){
+            var picture=document.getElementById("picture");
+            var mes="";
+            mes="<img src='story1/"+i+".png' style='height: 80%'>";
+            picture.innerHTML=mes;
+            i++;
+            if(i==18)
+            {
+                knock.load();
+                knock.play();
+            }
+                
+            if(i==21){
+                clearInterval(interval);
+                setTimeout(go, 3000);
+            }
+                
+            if(i==19)
+            {
+                
+                scream.play();
+            }
+                
+        }
+        function go(){
+            document.location.href="index.html";
+        }
+        window.addEventListener( "load", start, false );
+    </script>
+</head>
+
+<body>
+    <div id="picture"><img src="story1/11.png" height="100%"></div>
+    <audio id = "knock" preload = "auto">
+            <source src = "story1/knock.mp3" type = "audio/mpeg">
+    </audio>
+    <audio id = "scream" preload = "auto">
+            <source src = "story1/scream.mp3" type = "audio/mpeg">
+    </audio>
+</body>
+
+</html>

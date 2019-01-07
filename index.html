@@ -1,0 +1,72 @@
+<head>
+    <title>page</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        img{
+            margin: none;
+            height: 100px;
+            z-index: 2;
+        }
+        body{ 
+            font-family: Tahoma, sans-serif;
+            background-image: url(4.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            color:white;
+            z-index: 2;
+        }
+        .st1{
+            position: absolute;
+            top: 80%;
+            left:10%;
+        }
+        .st2{
+            position: absolute;
+            top: 80%;
+            left:45%;
+        }
+        .st3{
+            position: absolute;
+            top: 80%;
+            left:80%;
+        }
+        .ppt{
+            position: absolute;
+            top: 100%;
+            left:0%;            
+        }
+        p{
+            position: relative;
+            top: 30px;
+            left: 40px;
+            font-size: 30px;
+            z-index: 2;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+    function start(){
+        var button1 = document.getElementById("story1");
+        var button2 = document.getElementById("story2");
+        var button3 = document.getElementById("story3");
+        button1.addEventListener("click",doclick,false);
+        button2.addEventListener("click",doclick,false);
+        button3.addEventListener("click",doclick,false);
+    }
+    function doclick(e){
+        document.location.href=e.target.id+".html";
+    }
+    window.addEventListener("load",start,false);
+    </script>
+</head>
+
+<body>
+    <p>
+        <div class="ppt"><a href="說明文件.pptx" download target="blank">[說明文件]</a></div>
+        <div class="st1"><p>故事一</p><img src="1.png" id="story1"></div>
+        <div class="st2"><p>故事二</p><img src="2.png" id="story2"></div>
+        <div class="st3"><p>故事三</p><img src="3.png" id="story3"></div>
+    </p>
+</body>
+
+</html>

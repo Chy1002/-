@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>end1</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        
+    </style>
+    <script>
+        var i=parseInt(17);
+        function start()
+        {
+            interval = window.setInterval( "show()", 1000 );
+        }
+        function show(){
+            var picture=document.getElementById("picture");
+            var mes="";
+            mes="<img src='story2/"+i+".png' style='height: 80%'>";
+            picture.innerHTML=mes;
+            i++;
+            if(i==19){
+                clearInterval(interval);
+                setTimeout(go, 5000);
+            }
+        }
+        function go(){
+            document.location.href="index.html";
+        }
+        window.addEventListener( "load", start, false );
+    </script>
+</head>
+
+<body>
+    <embed src="sun.mp3" autostart=true hidden=true loop=true>
+    <div id="picture"><img src="story2/16.png" height="100%"></div>
+</body>
+
+</html>
