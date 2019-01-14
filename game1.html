@@ -189,14 +189,14 @@
         wrap.appendChild(cars);
         cars.speed = -200;
         cars.Timer = setInterval(function() {
-            cars.speed += speedTemp;
+            cars.speed += speedTemp + speedvalue;
             cars.style.top = cars.speed + 'px';
             if(cars.offsetTop > 800) {
                 clearInterval(cars.Timer);
                 wrap.removeChild(cars);
                 score += 1;
                 fs.innerHTML = score;
-                if(score==20)
+                if(score == 20)
                     win();
             }
             if(car.offsetTop <= (cars.offsetTop + 200) && car.offsetLeft == cars.offsetLeft) {
@@ -207,11 +207,14 @@
 
     }
     startbtn.onclick = function() {
+            speedvalue = 0;
+            startTimer();
             createCar();
             Timer1 = setInterval("createCar()", timeraaaa);
             gamestart.style.display = 'none';
         }
     overbtn.onclick = function() {
+            localStorage.setItem("test", 1);
             window.location.reload()
         }
     endbtn.onclick = function() {
@@ -269,13 +272,15 @@
         }
     }
     function win(){
+        localStorage.setItem("game1", "vdl");
         document.location.href="end1.html";
     }
     function startTimer(){
         window.setInterval( "updateTime()", 1000);
     }
     function updateTime(){
-        speedvalue += 0.5;
+        speedvalue += 0.1;
+        console.log("speed="+speedvalue);
     }
 </script>
 
