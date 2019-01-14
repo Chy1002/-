@@ -9,51 +9,36 @@
         
     </style>
     <script>
-        var i=parseInt(12);
-        var knock;
+        var i=parseInt(10);
         var scream;
         function start()
         {
             scream=document.getElementById("scream");
-            knock=document.getElementById("knock");
             interval = window.setInterval( "show()", 2000 );
         }
         function show(){
             var picture=document.getElementById("picture");
             var mes="";
-            mes="<img src='story1/"+i+".png' style='height: 80%'>";
+            mes="<img src='story3/"+i+".png' style='height: 80%'>";
             picture.innerHTML=mes;
             i++;
-            if(i==18)
-            {
-                knock.load();
-                knock.play();
-            }
-                
-            if(i==21){
+            if(i==18){
                 clearInterval(interval);
-                setTimeout(go, 3000);
-            }
-                
-            if(i==19)
-            {
                 
                 scream.play();
-            }
-                
+                setTimeout(go, 7000);
+            } 
         }
-        function go(){}
-            document.location.href="index.html";
+        function go(){
+            scream.pause();
+            document.location.href="page.html";
         }
         window.addEventListener( "load", start, false );
     </script>
 </head>
 
 <body>
-    <div id="picture"><img src="story1/11.png" height="100%"></div>
-    <audio id = "knock" preload = "auto">
-            <source src = "story1/knock.mp3" type = "audio/mpeg">
-    </audio>
+    <div id="picture"><img src="story3/9.png" height="100%"></div>
     <audio id = "scream" preload = "auto">
             <source src = "story1/scream.mp3" type = "audio/mpeg">
     </audio>

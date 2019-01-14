@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>game2</title>
+        <style type="text/css">
+        body {
+            background-image: url("story2/gamebackground.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            z-index: 0;
+        }
+        .mes {
+            line-height: 100px;
+            font-size: 30px;
+            color: white;
+        }
+        .fs {
+            display: inline-block;
+            color: red;
+        }
+        </style>
+    </head>
+    <body onload="start()">
+            <div class="mes">得分
+                <div class="fs">0</div>
+            </div>
+        <div id="whole" style="z-index: 1">          
+        </div>
+    </body>
+    <script>
+        var i=0;
+        var point=0;
+        var interval;
+        var sun = document.getElementById("sun");
+        var fs = document.querySelector(".fs");
+        var whole = document.getElementById("whole");
+        function start(){
+            setTimeout(move, 3000);
+        }
+        function hi(){
+            point++;
+            fs.innerHTML=point;
+            if(point==20){
+                localStorage.setItem("game2","vd2");
+                document.location.href="end2.html";
+            }
+            document.getElementById("whole").removeChild(document.getElementById("animate"));
+            sun.removeEventListener("click",move);
+            i=0;
+            clearInterval(interval);
+            move();
+        }
+        function move(){
+            console.log(i);
+            if(i==0)
+            {
+                i++;
+                var elem = document.createElement("img");
+                var randomnum = Math.floor(1 + Math.random() * 50);
+                elem.src = "story2/sun.png";
+                elem.id = "animate";
+                elem.style = "width: 20%; position: absolute; top: 0%";
+                sun = document.getElementById("whole").appendChild(elem);
+                var pos = 0;
+                var note = 0;
+                interval = setInterval(frame, 15);
+                sun.addEventListener("click",hi,false);
+                function frame(){
+                    if(pos == 75){
+                        if(note == 0){
+                            clearInterval(interval);
+                            whole.removeChild(document.getElementById("animate"));
+                            i=0;
+                            move();
+                        }
+                    }
+                    else if(note == 0){
+                        pos++;
+                        elem.style.top = randomnum+"%";
+                        elem.style.left = pos + "%";
+    /*
+                        document.getElementById("whole").addEventListener("onclick", trigger(), false);
+                        function trigger(){
+                            note = 1;
+                            clearInterval(id);
+                        console.log(note);                        
+                        }
+    */
+                    }
+                }
+            }
+            
+        }
+
+        window.addEventListener("load", start, false);
+    </script>
+</html>
