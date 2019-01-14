@@ -151,8 +151,8 @@
             <div class="car">
             </div>
             <div class="gameOver">
-                <div class="message">拉爆</div>
                 <div class="overbtn">再来一場</div>
+                <div class="message">拉爆</div>                
                 <div class="endbtn">看劇情</div>
             </div>
         </div>
@@ -215,7 +215,7 @@
         }
     overbtn.onclick = function() {
             localStorage.setItem("test", 1);
-            window.location.reload()
+            window.location.reload();
         }
     endbtn.onclick = function() {
         win();
@@ -272,7 +272,7 @@
         }
     }
     function win(){
-        localStorage.setItem("game1", "vdl");
+        localStorage.setItem("game1", "vd1");
         document.location.href="end1.html";
     }
     function startTimer(){
@@ -280,7 +280,7 @@
     }
     function updateTime(){
         speedvalue += 0.1;
-        console.log("speed="+speedvalue);
+        console.log("speed=" + speedvalue);
     }
 </script>
 
