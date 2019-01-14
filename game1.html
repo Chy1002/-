@@ -30,8 +30,7 @@
             td {
                 width: 48px;
                 height: 48px;
-            }     
-           
+            }                
             
             .gameStart {
                 width: 450px;
@@ -39,8 +38,7 @@
                 position: relative;
                 text-align: center;
                 background: white;
-                /*display: none;*/
-            }
+             }
            
             .mes {
                 line-height: 100px;
@@ -83,10 +81,9 @@
             .overbtn {
                 width: 180px;
                 height: 50px;
-                line-height: -200px;
+                line-height: 120px;
                 font-size: 1.6em;
                 color: white;
-                border: 1px solid black;
                 position: absolute;
                 top: 610px;
                 left: 135px;
@@ -95,10 +92,9 @@
             .endbtn {
                 width: 180px;
                 height: 50px;
-                line-height: 150px;
+                line-height: 190px;
                 font-size: 1.6em;
                 color: white;
-                border: 1px solid black;
                 position: absolute;
                 top: 610px;
                 left: 135px;
@@ -214,7 +210,6 @@
             gamestart.style.display = 'none';
         }
     overbtn.onclick = function() {
-            localStorage.setItem("test", 1);
             window.location.reload();
         }
     endbtn.onclick = function() {
