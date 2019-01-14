@@ -53,9 +53,32 @@
         button2.addEventListener("click",doclick,false);
         button3.addEventListener("click",doclick,false);
     }
+
     function doclick(e){
         document.location.href=e.target.id+".html";
     }
+
+    function iswin(){
+        var keys = [];
+        var len = localStorage.length;
+        for(var i=0;i< len;i++){
+            keys[i] = localStorage.key(i);
+        }
+        for(var i=0;i < len ;i++)
+            if(keys[i].startsWith("game")){
+                var id = document.getElementById(localStorage.getItem(keys[i]));
+                if(id.id.substring(2) == 1){
+                    id.innerHTML="<iframe class='vd1' width='430' height='242' style='left:0%; top:37%;'src='https://www.youtube.com/embed/yeLt6-13NnU' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+                }
+                if(id.id.substring(2) == 2){
+                    id.innerHTML="<iframe class='vd2' width='430' height='242' style='left:34%; top:0%;'src='https://www.youtube.com/embed/LteSvE5YyXo' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+                }
+                if(id.id.substring(2) == 3){
+                    id.innerHTML="<iframe class='vd3' width='32%' height='242' style='left:68%; top:37%;'src='https://www.youtube.com/embed/nIjK17PwDmY' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+                }
+            }
+    }
+
     window.addEventListener("load",start,false);
     </script>
 </head>

@@ -35,13 +35,16 @@
         var sun = document.getElementById("sun");
         var fs = document.querySelector(".fs");
         var whole = document.getElementById("whole");
+
         function start(){
             setTimeout(move, 3000);
         }
+
         function hi(){
             point++;
             fs.innerHTML=point;
             if(point==20){
+                localStorage.setItem("game2","vd2");
                 document.location.href="end2.html";
             }
             document.getElementById("whole").removeChild(document.getElementById("animate"));
@@ -50,6 +53,7 @@
             clearInterval(interval);
             move();
         }
+
         function move(){
             console.log(i);
             if(i==0){
@@ -63,7 +67,7 @@
                 var pos = 0;
                 var note = 0;
                 interval = setInterval(frame, 15);
-                sun.addEventListener("click",hi,false);
+                sun.addEventListener("click", hi, false);
                 function frame(){
                     if(pos == 75){
                         if(note == 0){

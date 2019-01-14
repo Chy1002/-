@@ -9,42 +9,41 @@
         
     </style>
     <script>
-        var i=parseInt(12);
+        var i = parseInt(12);
         var knock;
         var scream;
-        function start()
-        {
-            scream=document.getElementById("scream");
-            knock=document.getElementById("knock");
+
+        function start(){
+            scream = document.getElementById("scream");
+            knock = document.getElementById("knock");
             interval = window.setInterval( "show()", 2000 );
         }
+
         function show(){
-            var picture=document.getElementById("picture");
-            var mes="";
-            mes="<img src='story1/"+i+".png' style='height: 80%'>";
-            picture.innerHTML=mes;
+            var picture = document.getElementById("picture");
+            var mes = "";
+            mes="<img src='story1/" + i + ".png' style='height: 80%'>";
+            picture.innerHTML = mes;
             i++;
-            if(i==18)
-            {
+            
+            if(i==18){
                 knock.load();
                 knock.play();
-            }
-                
+            }                
             if(i==21){
                 clearInterval(interval);
                 setTimeout(go, 3000);
-            }
-                
-            if(i==19)
-            {
-                
+            }                
+            if(i==19){                
                 scream.play();
             }
                 
         }
+
         function go(){
-            document.location.href="index.html";
+            document.location.href = "index.html";
         }
+
         window.addEventListener( "load", start, false );
     </script>
 </head>
