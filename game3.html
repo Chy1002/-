@@ -18,12 +18,24 @@
             width: 500px;
         }
         .yo2{
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            font-size: 0px;
             height: 0px;
             width: 0px;
+            z-index: -1;
         }
+        body{
+            background-image: url("story3/gamebackground.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: 1;
+    }
     </style>
     <body>
-        <button class="yo" id=playbtn>GO</button>
+        <button class="yo" id=playbtn>Go</button>
         <img id="picture" src="story3/suck1.png" onclick="add()">
         <audio id = "suck" preload = "auto">
                 <source src = "story3/suck.mp3" type = "audio/mpeg">
@@ -50,17 +62,17 @@
         }
 
         function decision(){
-            if(count > 25){
-                window.alert('You got it');
+            if(count >= 25){
+                window.alert('恭喜通關');
                 win();
             }
             else{
-                window.alert('GG');
+                window.alert('再試更多次');
+                window.location.reload();
             }
         }
         
         function win(){
-            localStorage.setItem("game3","vd3");
             document.location.href="end3.html";
         }
     </script>

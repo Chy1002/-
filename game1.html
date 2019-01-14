@@ -30,17 +30,8 @@
             td {
                 width: 48px;
                 height: 48px;
-            }
+            }     
            
-            .tdd {
-                background: black;
-                z-index: 2;
-            }
-            
-            .tdds {
-                background: gray;
-                z-index: 1;
-            }
             
             .gameStart {
                 width: 450px;
@@ -92,9 +83,10 @@
             .overbtn {
                 width: 180px;
                 height: 50px;
-                line-height: 120px;
+                line-height: -200px;
                 font-size: 1.6em;
                 color: white;
+                border: 1px solid black;
                 position: absolute;
                 top: 610px;
                 left: 135px;
@@ -103,9 +95,10 @@
             .endbtn {
                 width: 180px;
                 height: 50px;
-                line-height: 190px;
+                line-height: 150px;
                 font-size: 1.6em;
                 color: white;
+                border: 1px solid black;
                 position: absolute;
                 top: 610px;
                 left: 135px;
@@ -124,12 +117,6 @@
                 display: inline-block;
             }
 
-            .sc {
-                width: 80px;
-                height: 48px;
-                display: inline-block;
-                vertical-align: top;
-            }
             .fenshu {
                 width: 450px;
                 height: 50px;
@@ -141,6 +128,12 @@
             .fs {
                 display: inline-block;
                 color: red;
+            }
+            body{
+                background-image: url("story1/gamebackground.png");
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
             }
     </style>
 </head>
@@ -158,8 +151,8 @@
             <div class="car">
             </div>
             <div class="gameOver">
-                <div class="overbtn">再来一場</div>
                 <div class="message">拉爆</div>
+                <div class="overbtn">再来一場</div>
                 <div class="endbtn">看劇情</div>
             </div>
         </div>
@@ -172,7 +165,6 @@
     var startbtn = document.querySelector(".stratbtn")
     var overbtn = document.querySelector(".overbtn")
     var endbtn = document.querySelector(".endbtn")
-    var sc = document.querySelector(".sc")
     var fs = document.querySelector(".fs")
     car.innerHTML = "<table class='tdd><tr><td></td><td colspan='3' rowspan='4' class='tdd'><img height='192px' z-index='2' src='story1/me.png'></td></tr></table>"
     var saicheArr = ['0px',
@@ -197,7 +189,7 @@
         wrap.appendChild(cars);
         cars.speed = -200;
         cars.Timer = setInterval(function() {
-            cars.speed += speedTemp+speedvalue;
+            cars.speed += speedTemp;
             cars.style.top = cars.speed + 'px';
             if(cars.offsetTop > 800) {
                 clearInterval(cars.Timer);
@@ -215,14 +207,11 @@
 
     }
     startbtn.onclick = function() {
-            speedvalue=0;
-            startTimer();
             createCar();
             Timer1 = setInterval("createCar()", timeraaaa);
             gamestart.style.display = 'none';
         }
     overbtn.onclick = function() {
-            localStorage.setItem("test",1);
             window.location.reload()
         }
     endbtn.onclick = function() {
@@ -236,7 +225,6 @@
                     if(left == 0) {
                         car.style.left = '0px';
                     } else {
-
                         car.style.left = left - 150 + 'px';
                     }
                     break;
@@ -248,7 +236,7 @@
                     }
                     break;
                 case 38:
-                    speedTemp = 3+speedvalue;
+                    speedTemp = 3 + speedvalue;
                     if(flag) {
                         clearInterval(Timer1);
                         timeraaaa = 850;
@@ -263,7 +251,7 @@
     document.onkeyup = function() {
             var ev = event || window.event;
             if(ev.keyCode == 38) {
-                speedTemp = 1+speedvalue;
+                speedTemp = 1 + speedvalue;
                 clearInterval(Timer1);
                 timeraaaa = 2300;
                 Timer1 = setInterval("createCar()", timeraaaa);
@@ -281,18 +269,13 @@
         }
     }
     function win(){
-        localStorage.setItem("game1","vd1");
         document.location.href="end1.html";
     }
-    function startTimer() 
-    {
-        window.setInterval( "updateTime()", 1000 );
+    function startTimer(){
+        window.setInterval( "updateTime()", 1000);
     }
-
-    function updateTime()
-    {
-        speedvalue+=0.1;
-        console.log("speed="+speedvalue);
+    function updateTime(){
+        speedvalue += 0.1;
     }
 </script>
 
