@@ -42,6 +42,7 @@
             point++;
             fs.innerHTML=point;
             if(point==20){
+                localStorage.setItem("game2","vd2");
                 document.location.href="end2.html";
             }
             document.getElementById("whole").removeChild(document.getElementById("animate"));
@@ -52,7 +53,8 @@
         }
         function move(){
             console.log(i);
-            if(i==0){
+            if(i==0)
+            {
                 i++;
                 var elem = document.createElement("img");
                 var randomnum = Math.floor(1 + Math.random() * 50);
@@ -77,7 +79,15 @@
                         pos++;
                         elem.style.top = randomnum+"%";
                         elem.style.left = pos + "%";
-                      }
+    /*
+                        document.getElementById("whole").addEventListener("onclick", trigger(), false);
+                        function trigger(){
+                            note = 1;
+                            clearInterval(id);
+                        console.log(note);                        
+                        }
+    */
+                    }
                 }
             }
             
